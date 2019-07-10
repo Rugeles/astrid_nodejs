@@ -4,20 +4,7 @@
  */
 const express = require('express');
 
-var bodyParser = require('body-parser');
-
 const app = express();
-app.use(express.static('public'))
-app.set('views', '/public/views');
-app.set('view engine', 'html');
-
-
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-
-app.use(bodyParser.json());
 
 /**
  * Make routes from url
@@ -28,11 +15,6 @@ app.get('/', (req, res) => {
         .send('Something else')
         .end();
 
-});
-
-app.get('/firebase', (request, response) =>{
-    response
-        .render('firebase_inicial.html');
 });
 
 // Start the app
