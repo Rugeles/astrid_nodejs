@@ -17,8 +17,20 @@ class ConnectableClass {
          */
         this._errorMessage=null;
 
+        /**
+         * Configuracion de firebase para la conexion
+         * con la aplicacion correspondiente
+         * @type {{storageBucket: string, apiKey: string, messagingSenderId: string, appId: string, projectId: string, databaseURL: string, authDomain: string}}
+         * @private
+         */
         this._firebaseConfig={
-
+            apiKey: "AIzaSyAJYnbmUSdKl4tIVR564AyXAgFBWXonEWE",
+            authDomain: "astrid-nodejs.firebaseapp.com",
+            databaseURL: "https://astrid-nodejs.firebaseio.com",
+            projectId: "astrid-nodejs",
+            storageBucket: "astrid-nodejs.appspot.com",
+            messagingSenderId: "254678220273",
+            appId: "1:254678220273:web:e58eee2c0e51f892"
         };
         this.initConnection();
     }
