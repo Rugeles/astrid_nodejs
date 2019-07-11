@@ -7,8 +7,23 @@ class Usuario {
      * @param apellido
      */
     constructor(id=1, nombre='', apellido='') {
+        /**
+         *
+         * @type {number}
+         * @private
+         */
         this._id = id;
+        /**
+         *
+         * @type {string}
+         * @private
+         */
         this._nombre = nombre;
+        /**
+         *
+         * @type {string}
+         * @private
+         */
         this._apellido = apellido;
     }
 
