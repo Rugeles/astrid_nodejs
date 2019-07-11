@@ -1,3 +1,5 @@
+require("../modelo/ConnectableClass");
+require("../modelo/Usuario");
 class Usuarios extends ConnectableClass{
 
     /**

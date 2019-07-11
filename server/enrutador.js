@@ -28,8 +28,24 @@ app.get('/firebase', (req, res) => {
 
 });
 
+app.get('/prueba', (req, res)=>{
+    require("../modelo/Usuarios");
+    try {
+        let usuarios=new Usuarios();
+        res
+            .status(200)
+            .send("Sin problema");
+    }catch (e) {
+        res
+            .status(200)
+            .send(e.message);
+    }
+});
 
-// Start the app
+/**
+ *
+ * @type {string | number}
+ */
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
