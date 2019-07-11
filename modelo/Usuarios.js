@@ -1,5 +1,5 @@
-require("../modelo/ConnectableClass");
-require("../modelo/Usuario");
+require("ConnectableClass");
+require("Usuario");
 class Usuarios extends ConnectableClass{
 
     /**

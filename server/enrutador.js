@@ -6,8 +6,6 @@ const express = require('express');
 
 const app = express();
 
-
-
 /**
  * Make routes from url
  */
@@ -29,7 +27,7 @@ app.get('/firebase', (req, res) => {
 });
 
 app.get('/prueba', (req, res)=>{
-    require("../modelo/Usuarios");
+
     try {
         let usuarios=new Usuarios();
         res
