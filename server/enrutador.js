@@ -28,6 +28,9 @@ app.get('/firebase', (req, res) => {
 
 app.get('/prueba', (req, res)=>{
 
+    const Usuarios= require('../modelo/Usuarios');
+
+
     try {
         let usuarios=new Usuarios();
         res

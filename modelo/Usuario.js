@@ -75,3 +75,4 @@ class Usuario {
         this._apellido = value;
     }
 }
+module.exports=Usuario;

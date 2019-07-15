@@ -1,5 +1,17 @@
-require("ConnectableClass");
-require("Usuario");
+/**
+ * Es necesario crear una constante por cada
+ * objeto que se desea incluir a una clase,
+ * ademas se debe asegurar que la clase que se desea importar
+ * tenga la propiedad module.exports
+ * @type {ConnectableClass}
+ */
+const ConnectableClass=require("../modelo/ConnectableClass");
+/**
+ *
+ * @type {Usuario}
+ */
+const Usuario=require("../modelo/Usuario");
+
 class Usuarios extends ConnectableClass{
 
     /**
@@ -9,6 +21,11 @@ class Usuarios extends ConnectableClass{
      */
     constructor(){
         super();
+        /**
+         *
+         * @type {Usuario}
+         * @private
+         */
         this._usuario=new Usuario();
     }
 
@@ -38,3 +55,4 @@ class Usuarios extends ConnectableClass{
 
     }
 }
+module.exports=Usuarios;

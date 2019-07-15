@@ -45,11 +45,10 @@ class ConnectableClass {
             this._firebase=require("firebase/app");
             require("firebase/database");
             this._dataBase=this._firebase
-                .initializeApp(this._firebaseConfig)
-                .firestore();
+                .initializeApp(this._firebaseConfig);
             console.log("Conexion exitosa");
         }catch (e) {
-            this.errorMessage(e.message);
+            this.errorMessage=e.message;
             console.log("Ocurrió un error al conectar con firebase \n"+this.errorMessage);
         }
     }
@@ -75,3 +74,5 @@ class ConnectableClass {
         this._errorMessage = value;
     }
 }
+
+module.exports=ConnectableClass;
