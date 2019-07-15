@@ -55,12 +55,17 @@ class Usuarios extends ConnectableClass{
 
     }
 
+    /**
+     * Consulta en tiempo real
+     */
     consultarUsuarios(){
-        this._dataBase.collection('usuarios').doc('1098770461').get().then(
-            function (doc) {
-                console.log(doc.data().nombre);
+        this._dataBase.collection('usuarios').doc('1098770461').onSnapshot(
+            documentSnapshot =>{
+                if (documentSnapshot.exists) {
+                    console.log(documentSnapshot.data().nombre);
+                }
             }
-        );
+        )
 
 
     }
