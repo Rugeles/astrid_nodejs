@@ -33,6 +33,7 @@ app.get('/prueba', (req, res)=>{
 
     try {
         let usuarios=new Usuarios();
+        usuarios.consultarUsuarios();
         res
             .status(200)
             .send("Sin problema");

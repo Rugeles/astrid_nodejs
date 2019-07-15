@@ -54,5 +54,15 @@ class Usuarios extends ConnectableClass{
     insertUsuario(usuario=null){
 
     }
+
+    consultarUsuarios(){
+        this._dataBase.collection('usuarios').doc('1098770461').get().then(
+            function (doc) {
+                console.log(doc.data().nombre);
+            }
+        );
+
+
+    }
 }
 module.exports=Usuarios;

@@ -43,10 +43,13 @@ class ConnectableClass {
         console.log("Intentanto conectar a firebase.")
         try{
             this._firebase=require("firebase/app");
-            require("firebase/database");
-            this._dataBase=this._firebase
+            // require('firebase/database');
+            require("firebase/firestore");
+            this._firebase
                 .initializeApp(this._firebaseConfig);
+            this._dataBase=this._firebase.firestore();
             console.log("Conexion exitosa");
+
         }catch (e) {
             this.errorMessage=e.message;
             console.log("Ocurrió un error al conectar con firebase \n"+this.errorMessage);
