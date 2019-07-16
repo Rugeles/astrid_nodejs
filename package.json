@@ -13,7 +13,8 @@
   "dependencies": {
     "ejs": "^2.6.2",
     "express": "^4.17.1",
-    "firebase": "^6.2.4"
+    "firebase": "^6.2.4",
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

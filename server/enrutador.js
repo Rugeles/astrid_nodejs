@@ -22,15 +22,7 @@ app.set('views', 'public/view');
 app.get('/', (req, res) => {
     res.render('index', {page:'Home', menuId:'home'});
 });
-/**
- * Ruta de prueba para enviar a
- * el archivo de prueba de integracion
- * de firebase
- */
-app.get('/firebase', (req, res) => {
-    res.sendFile("firebase_inicial.html", {root:'/Users/administrador/WebstormProjects/investigaciones/astrid_nodejs/public/view'});
 
-});
 
 
 
