@@ -7,14 +7,20 @@ const express = require('express');
 const app = express();
 
 /**
+ *Se configura el motor de vista EJS
+ */
+app.set('view engine', 'ejs');
+/**
+ * Configura el delimitador para compilar codigo javascript
+ */
+app.set('view options', {delimiter: '%'});
+
+app.set('views', 'public/view');
+/**
  * Make routes from url
  */
 app.get('/', (req, res) => {
-    res
-        .status(200)
-        .send('Something else')
-        .end();
-
+    res.render('index', {page:'Home', menuId:'home'});
 });
 /**
  * Ruta de prueba para enviar a
@@ -26,23 +32,7 @@ app.get('/firebase', (req, res) => {
 
 });
 
-app.get('/prueba', (req, res)=>{
 
-    const Usuarios= require('../modelo/Usuarios');
-
-
-    try {
-        let usuarios=new Usuarios();
-        usuarios.consultarUsuarios();
-        res
-            .status(200)
-            .send("Sin problema");
-    }catch (e) {
-        res
-            .status(200)
-            .send(e.message);
-    }
-});
 
 /**
  *
