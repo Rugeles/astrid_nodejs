@@ -4,7 +4,7 @@
   "description": "",
   "main": "node server/enrutador.js",
   "scripts": {
-    "start": "nodemon server/enrutador.js",
+    "start": "node server/enrutador.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
