@@ -28,8 +28,8 @@ app.get('/realtime-sample', (req, res)=>{
 });
 
 io.on('connection', (socket)=>{
+    console.log("New Connection");
     socket.on("chat", (data)=>{
-        console.log(data.msg);
         io.emit("newMessage", {msg: "Se ha recibido un nuevo mensaje"});
     });
 });

@@ -24,15 +24,23 @@
     </div>
 </div>
 </body>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
 <script>
-    const socket= io("http://localhost:8080");
+
+    let socket;
+    $(document).ready(()=>{
+        socket= io("http://localhost:8080");
+        socket.on("newMessage", (data)=>{
+            console.log(data);
+        });
+    });
 
     function sendToChat(){
         socket.emit("chat", {msg:'hola'});
-        socket.on("newMessage", (data)=>{
-            console.log(data);
-        })
 
     }
 
