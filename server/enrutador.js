@@ -2,9 +2,9 @@
  * This library is required to create a websocket
  * @type {createApplication}
  */
-const express = require('express');
-
-const app = express();
+const app = require('express')();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 /**
  *Se configura el motor de vista EJS
@@ -23,15 +23,23 @@ app.get('/', (req, res) => {
     res.render('index', {page:'Home', menuId:'home'});
 });
 
+app.get('/realtime-sample', (req, res)=>{
+   res.render('realtime', {page: "Realtime Firebase wit View Sample", menuId:"realtime"});
+});
 
-
+io.on('connection', (socket)=>{
+    socket.on("chat", (data)=>{
+        console.log(data.msg);
+        io.emit("newMessage", {msg: "Se ha recibido un nuevo mensaje"});
+    });
+});
 
 /**
  *
  * @type {string | number}
  */
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+http.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
 });
