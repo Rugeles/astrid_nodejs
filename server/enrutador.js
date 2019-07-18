@@ -3,8 +3,11 @@
  * @type {createApplication}
  */
 const app = require('express')();
+const app_chat=require('express')();
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const http_chat = require('http').createServer(app);
+
+const io = require('socket.io')(http_chat);
 
 /**
  *Se configura el motor de vista EJS
@@ -43,3 +46,7 @@ http.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
 });
+http_chat.listen(65080, () => {
+    console.log("Chat listening on port 65080");
+});
+

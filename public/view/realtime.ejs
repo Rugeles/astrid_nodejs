@@ -33,7 +33,7 @@
 
     let socket;
     $(document).ready(()=>{
-        socket= io("http://localhost:8080");
+        socket= io("https://astridnodejs.appspot.com:65080");
         socket.on("newMessage", (data)=>{
             console.log(data);
         });
@@ -41,7 +41,6 @@
 
     function sendToChat(){
         socket.emit("chat", {msg:'hola'});
-
     }
 
 </script>
