@@ -30,7 +30,7 @@ class ConnectableClass {
             projectId: "astrid-nodejs",
             storageBucket: "astrid-nodejs.appspot.com",
             messagingSenderId: "254678220273",
-            appId: "1:254678220273:web:e58eee2c0e51f892"
+            appId: "xxxxxx"
         };
         this.initConnection();
     }
