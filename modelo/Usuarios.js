@@ -52,9 +52,10 @@ class Usuarios extends ConnectableClass{
      * en la base de datos NoSql Firebase
      * @param usuario
      */
-    insertUsuario(usuario){
+    insertUsuario(usuario, functionCallback){
         this._dataBase.collection(USUARIOS).add(usuario).then(ref =>{
             console.log("\nSe ha agregado un nuevo usuario con el id:"+ref.id);
+            functionCallback(true);
         });
     }
 

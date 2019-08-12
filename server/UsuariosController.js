@@ -35,9 +35,10 @@ class UsuariosController {
      * a cabo este procedimiento
      * @param data
      */
-    agregarUsuario(data){
-        let result=this._usuarios.insertUsuario(data);
-        return result;
+    agregarUsuario(data, functionCallBack){
+        this._usuarios.insertUsuario(data, (isInserted)=>{
+            functionCallBack(isInserted);
+        });
     }
 
     get usuarios() {

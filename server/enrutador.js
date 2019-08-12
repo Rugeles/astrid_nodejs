@@ -44,7 +44,9 @@ io.on('connection', (socket)=>{
     socket.on("addNewUser", (data)=>{
         const UsuariosController=require('../server/UsuariosController');
         let usuariosController=new UsuariosController();
-        usuariosController.agregarUsuario(data);
+        usuariosController.agregarUsuario(data, (success)=>{
+            console.log(success);
+        });
     });
 });
 
