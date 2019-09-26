@@ -24,14 +24,15 @@ class ConnectableClass {
          * @private
          */
         this._firebaseConfig={
-            apiKey: "AIzaSyAJYnbmUSdKl4tIVR564AyXAgFBWXonEWE",
-            authDomain: "astrid-nodejs.firebaseapp.com",
-            databaseURL: "https://astrid-nodejs.firebaseio.com",
-            projectId: "astrid-nodejs",
-            storageBucket: "astrid-nodejs.appspot.com",
-            messagingSenderId: "254678220273",
-            appId: "1:254678220273:web:e58eee2c0e51f892"
-        };
+            apiKey: "AIzaSyDIpO_lQMwiCIRo8DmmxDIEcBxEEarGwvQ",
+            authDomain: "astrid-a1455.firebaseapp.com",
+            databaseURL: "https://astrid-a1455.firebaseio.com",
+            projectId: "astrid-a1455",
+            storageBucket: "astrid-a1455.appspot.com",
+            messagingSenderId: "380223906687",
+            appId: "1:380223906687:web:a271a5afc78349a82db04a",
+            measurementId: "G-8QDDG3BCMS"
+        };;
         this.initConnection();
     }
 
