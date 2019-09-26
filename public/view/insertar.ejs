@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head.ejs %>
+</head>
+<body>
+<% include ../partials/menu.ejs %>
+<div class="container-fluid bg-3 text-center">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <h3><%= page %></h3><br>
+            <div class="form-group">
+                <label for="apellidoUsuario">Apellido Usuario</label>
+                <input type="text" class="form-control" id="apellidoUsuario" aria-describedby="apellidoHelp" placeholder="Pérez">
+            </div>
+            <div class="form-group">
+                <label for="nombreUsuario">Nombre Usuario</label>
+                <input type="text" class="form-control" id="nombreUsuario" placeholder="Fulanito">
+            </div>
+            <button onclick="addNewUser()" class="btn btn-primary">Guardar</button>
+        </div>
+
+        <div class="col-lg-4">
+            <h3>Datos Ingresados en Tiempo Real</h3><br>
+            <div id="datos">
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+<script>
+
+    let socket;
+    $(document).ready(()=>{
+        socket = io("http://localhost:65080");
+        socket.on('newUserAdded', (data)=>{
+
+        });
+    });
+    function addNewUser(){
+        let user={
+            _nombre: $('#nombreUsuario').val(),
+            _apellido: $('#apellidoUsuario').val()
+        };
+        socket.emit('addNewUser',{user: user})
+    }
+
+
+</script>
+
+<% include ../partials/scripts.ejs %>
+</html>

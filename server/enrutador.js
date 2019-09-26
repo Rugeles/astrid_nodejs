@@ -25,6 +25,12 @@ app.set('views', 'public/view');
 app.get('/', (req, res) => {
     res.render('index', {page:'Home', menuId:'home'});
 });
+/**
+ * route to insert user data
+ */
+app.get('/insertar', (req, res) => {
+    res.render('insertar', {page:'Insertar datos en firebase', menuId: 'home'});
+});
 
 app.get('/realtime-sample', (req, res)=>{
    res.render('realtime', {page: "Realtime Firebase wit View Sample", menuId:"realtime"});
@@ -34,6 +40,13 @@ io.on('connection', (socket)=>{
     console.log("New Connection");
     socket.on("chat", (data)=>{
         io.emit("newMessage", {msg: "Se ha recibido un nuevo mensaje"});
+    });
+    socket.on("addNewUser", (data)=>{
+        const UsuariosController=require('../server/UsuariosController');
+        let usuariosController=new UsuariosController();
+        usuariosController.agregarUsuario(data, (success)=>{
+            console.log(success);
+        });
     });
 });
 

@@ -12,6 +12,7 @@ const ConnectableClass=require("../modelo/ConnectableClass");
  */
 const Usuario=require("../modelo/Usuario");
 
+const USUARIOS='usuarios';
 class Usuarios extends ConnectableClass{
 
     /**
@@ -51,15 +52,18 @@ class Usuarios extends ConnectableClass{
      * en la base de datos NoSql Firebase
      * @param usuario
      */
-    insertUsuario(usuario=null){
-
+    insertUsuario(usuario, functionCallback){
+        this._dataBase.collection(USUARIOS).add(usuario).then(ref =>{
+            console.log("\nSe ha agregado un nuevo usuario con el id:"+ref.id);
+            functionCallback(true);
+        });
     }
 
     /**
      * Consulta en tiempo real
      */
     consultarUsuarios(){
-        this._dataBase.collection('usuarios').doc('1098770461').onSnapshot(
+        this._dataBase.collection(USUARIOS).doc('1098770461').onSnapshot(
             documentSnapshot =>{
                 if (documentSnapshot.exists) {
                     console.log(documentSnapshot.data().nombre);
